@@ -1,0 +1,27 @@
+{
+  "name": "networkdiagnosistool",
+  "version": "1.0.0",
+  "description": "A Node.js tool for network diagnosis using MTR and DNS resolution.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "network",
+    "diagnosis",
+    "mtr",
+    "dns",
+    "traceroute"
+  ],
+  "author": "c0dingbear",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "mtr": "^0.2.1"
+  },
+  "files": [
+    "index.js",
+    "README.md",
+    "README_zh.md"
+  ]
+}
