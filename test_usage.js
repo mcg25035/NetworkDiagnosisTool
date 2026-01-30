@@ -20,10 +20,11 @@ const Diagnosis = require('./index');
     tool.run((step) => {
         // Stepwise callback
         if (step.step === 'mtr_ping_progress') {
-            const pct = Math.round((step.current / step.total) * 100);
-            process.stdout.write(`\r[MTR Ping] Progress: ${step.current}/${step.total} (${pct}%) - Last: ${step.ip} (${step.status})   `);
-            if (step.current === step.total) console.log(); // Newline on finish
-        } 
+            if (step.type === 'cycle_update') {
+                process.stdout.write(`\r[MTR Ping] Cycle: ${step.cycle}/${step.totalCycles} - Updating Stats for ${step.hops.length} hops...   `);
+                if (step.cycle === step.totalCycles) console.log(); // Newline on finish
+            }
+        }  
         else if (step.status === 'starting' || step.status === 'resolving' || step.status === 'running') {
             console.log(`[Callback] ${step.step} - ${step.domain || ''}: ${step.status} ${step.total ? `(Total Hops: ${step.total})` : ''}`);
         } 
