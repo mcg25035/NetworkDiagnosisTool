@@ -1,6 +1,6 @@
 {
   "name": "networkdiagnosistool",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A Node.js tool for network diagnosis using MTR and DNS resolution.",
   "main": "index.js",
   "scripts": {

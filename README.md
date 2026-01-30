@@ -8,21 +8,17 @@ A Node.js package for diagnosing network connection quality. It supports retriev
 
 1.  **Local Network Info**: Automatically retrieves local IPv4, IPv6 addresses, and system DNS servers.
 2.  **DNS Resolution**: Resolves target domains to obtain target IP addresses.
-3.  **MTR Testing**: Integrates `mtr` tool to analyze connection status for each hop.
+3.  **MTR Testing**: Performs MTR-like analysis using system `ping` to analyze connection status for each hop.
 4.  **Dual Mode Support**: Supports both Promise Chain (Async/Await) and Stepwise Callback execution patterns.
 5.  **Report Generation**: Generates a complete JSON diagnosis report.
 
 ## Requirements
 
-This package relies on the system's `mtr` command. Please ensure `mtr` is installed on your system:
+This package relies on the system's `ping` command, which is typically pre-installed on most operating systems.
 
-```bash
-# Ubuntu/Debian
-sudo apt-get install mtr-tiny
-
-# MacOS
-brew install mtr
-```
+- **Windows**: `ping` is built-in.
+- **Linux**: `iputils-ping` or similar (usually pre-installed).
+- **macOS**: `ping` is built-in.
 
 Install package dependencies:
 
@@ -117,7 +113,15 @@ tool.run((progress) => {
       "mtr": {
         "executed": true,
         "hops": [
-          { "ip": "192.168.1.1", "hostname": null, "number": 1, "rtts": [0.001] }
+          { 
+            "host": "192.168.1.1", 
+            "ip": "192.168.1.1", 
+            "loss": 0, 
+            "avg": 1.5, 
+            "best": 1.2, 
+            "worst": 2.1, 
+            "stdev": 0.3 
+          }
         ],
         "error": null
       }

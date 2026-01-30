@@ -6,21 +6,17 @@
 
 1.  **本機資訊收集**：自動取得本機 IPv4、IPv6 以及系統使用的 DNS 伺服器地址。
 2.  **DNS 解析**：針對目標網域進行解析，取得目標 IP。
-3.  **MTR 測試**：整合 `mtr` 工具，分析每一跳 (Hop) 的連線狀況。
+3.  **MTR 測試**：使用系統 `ping` 模擬 MTR 檢測，分析每一跳 (Hop) 的連線狀況。
 4.  **雙模式支援**：提供 Promise Chain (Async/Await) 與 Stepwise Callback 兩種調用方式。
 5.  **報表生成**：最終輸出完整的 JSON 診斷報告。
 
 ## 安裝需求
 
-此套件依賴系統中的 `mtr` 指令，請確保您的系統已安裝 `mtr`：
+此套件依賴系統中的 `ping` 指令，這在大多數作業系統中已預先安裝。
 
-```bash
-# Ubuntu/Debian
-sudo apt-get install mtr-tiny
-
-# MacOS
-brew install mtr
-```
+- **Windows**: 內建 `ping`。
+- **Linux**: `iputils-ping` 或類似工具 (通常已安裝)。
+- **macOS**: 內建 `ping`。
 
 安裝套件依賴：
 
@@ -115,7 +111,15 @@ tool.run((progress) => {
       "mtr": {
         "executed": true,
         "hops": [
-          { "ip": "192.168.1.1", "hostname": null, "number": 1, "rtts": [0.001] }
+          { 
+            "host": "192.168.1.1", 
+            "ip": "192.168.1.1", 
+            "loss": 0, 
+            "avg": 1.5, 
+            "best": 1.2, 
+            "worst": 2.1, 
+            "stdev": 0.3 
+          }
         ],
         "error": null
       }
@@ -123,3 +127,5 @@ tool.run((progress) => {
   ]
 }
 ```
+
+[GitHub](https://github.com/mcg25035/NetworkDiagnosisTool)
