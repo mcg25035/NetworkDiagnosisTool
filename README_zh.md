@@ -2,6 +2,8 @@
 
 一個用於診斷網路連線品質的 Node.js 套件。支援取得本機網路資訊、DNS 解析以及 MTR (My Traceroute) 測試。
 
+[GitHub](https://github.com/mcg25035/NetworkDiagnosisTool)
+
 ## 功能特點
 
 1.  **本機資訊收集**：自動取得本機 IPv4、IPv6 以及系統使用的 DNS 伺服器地址。
@@ -128,4 +130,3 @@ tool.run((progress) => {
 }
 ```
 
-[GitHub](https://github.com/mcg25035/NetworkDiagnosisTool)

@@ -21,8 +21,5 @@
     "README.md",
     "README_zh.md"
   ],
-  "dependencies": {
-    "nodejs-traceroute": "^2.0.1",
-    "ping": "^0.4.4"
-  }
+  "dependencies": {}
 }

@@ -4,6 +4,8 @@
 
 A Node.js package for diagnosing network connection quality. It supports retrieving local network information, DNS resolution, and performing MTR (My Traceroute) tests.
 
+[GitHub](https://github.com/mcg25035/NetworkDiagnosisTool)
+
 ## Features
 
 1.  **Local Network Info**: Automatically retrieves local IPv4, IPv6 addresses, and system DNS servers.
@@ -129,3 +131,4 @@ tool.run((progress) => {
   ]
 }
 ```
+
